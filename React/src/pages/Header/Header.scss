@@ -1,0 +1,221 @@
+@import '../../assets/css/variable/variable';
+
+
+.header{
+    padding: 12px 20px;
+    background-image: url(../../assets/img/Header-bg.svg);
+    background-color: transparent;
+    // left: 250px;
+    left: 80px;
+    // position: fixed;
+    // right: 0;
+    // top: 0;
+    // z-index: 999;
+    width: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    .header_inner{
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        .left_part{
+            display: flex;
+            align-items: center;
+            width: 50%;
+            p {
+                color: $white_color;
+                margin-bottom: 0;
+                font-weight: 500;
+                font-size: $font_large;
+                padding-inline-start: 12px;
+            }
+            .btn_close{
+                padding: 0;
+                border: none;
+                width: 24px;
+                height: 22px;
+                min-width: 24px;
+                margin: 0 10px 0 0;
+                background-color: transparent;
+            }
+
+            .header_search_bar{
+                .input_group{
+                    background: $white_color;
+                    .form_control{
+                        background-color: transparent;
+                        padding: 8px 8px 8px 40px;
+                        width: 250px;
+                        border-radius: unset;
+                        border-width: 0 0 1px 0;
+                        border-style: solid;
+                        border-color: transparent;
+                        font-size: $font_small;
+                        &::placeholder{
+                            font-size: $font_small;
+                            font-weight: 400;
+                            line-height: 24px;
+                            color: rgba(14, 59, 89, 0.5);
+                        }
+                        &:focus{
+                            box-shadow: none;
+                            border-color: rgba(14, 59, 89, 0.2);
+                            animation-duration: 0.8s;
+                            animation-timing-function: linear;
+                            animation-name:"flipInX" ;
+                            -webkit-animation-duration: 0.8s;
+                            -webkit-animation-timing-function: linear;
+                            -webkit-animation-name: "flipInX";
+                            -moz-animation-duration: 0.8s;
+                            -moz-animation-timing-function: linear;
+                            -moz-animation-name: "flipInX";
+                        }
+                        @keyframes flipInX {
+                            from {
+                              transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                              animation-timing-function: ease-in;
+                              opacity: 0;
+                            }
+                          
+                            40% {
+                              transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                              animation-timing-function: ease-in;
+                            }
+                          
+                            60% {
+                              transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                              opacity: 1;
+                            }
+                          
+                            80% {
+                              transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+                            }
+                          
+                            to {
+                              transform: perspective(400px);
+                            }
+                        }
+                    }
+                    .search_btn{
+                        padding: 0;
+                        border: none;
+                        color: rgba(14, 59, 89, 0.5);
+                        position: absolute;
+                        top: 0;
+                        bottom: auto;
+                        left: 0;
+                        right: auto;
+                        width: 35px;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                }
+            }
+            
+        }
+        .right_part{
+            display: flex;
+            align-items: center;
+            .common_content{
+                margin: 0 12px;
+                cursor: pointer;
+                &.notification{
+                    .notification_inner{
+                        position: relative;
+                        img{
+                            min-width: 21px;
+                        }
+                        &:after{
+                           content: "";
+                            display: block;
+                            background-color: $bodyhovercolor;
+                            width: 7.58px;
+                            height: 7.58px; 
+                            border-radius: 50%;
+                            border: 1.5px solid #E1E9F1;
+                            position: absolute;
+                            top: 0;
+                            bottom: auto;
+                            right: 0;
+                            left: auto;
+                        }
+                    }
+                }
+                &.user {
+                    margin-right: 0;
+                    .user_inner{
+                        display: flex;
+                        align-items: center;
+                        border: 1px solid rgba(0, 0, 0, 0.09);
+                        border-radius: 8px;
+                        padding: 5px;
+                        .profile_img{
+                            img{
+                                min-width: 35px;
+                                border-radius: 7px;
+                            }
+                        }
+                        .user_wrapper{
+                            display: flex;
+                            align-items: center;
+                            .user_name{
+                                font-weight: 700;
+                                font-size: $font_medium;
+                                color: $bodycolor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:$desktop_pro_up) {
+    .header{
+        .header_inner{
+            .right_part{
+                .common_content{
+                    &.user {
+                        .user_inner{
+                            .profile_img{
+                                margin-right: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$tablet) {
+    header{
+        &.header{   
+            padding: 12px;
+            left: 0;
+            margin: 0;
+            background:#ffffff;
+            border-bottom: none;
+        }
+    }
+}
+
+@media screen and (max-width:$medium_iphone) {
+    .header{
+        .header_inner{
+            .left_part{
+                .header_search_bar{
+                    .input_group{
+                        .form_control{
+                            width: 100%;
+                        }
+                    }
+                }
+                
+            }
+
+        }
+    }
+}
